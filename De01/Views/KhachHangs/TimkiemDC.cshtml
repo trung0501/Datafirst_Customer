@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "TimkiemDC";
+}
+<br />
+@using (Html.BeginForm("TimkiemDC", "KhachHangs", FormMethod.Get))
+{
+     @Html.Label("Nhập địa chỉ")
+    @Html.TextBox("txtDiachi")
+    <input type="submit" value="Tìm kiếm" />
+}
+<table border="1">
+    <tr>
+        <td width="50">Mã KH </td>
+        <td width="200">Tên KH </td>
+        <td width="200">Địa chỉ </td>
+        <td width="150">Tên báo </td>
+        <td width="200">Ngày đặt </td>
+        <td width="80">Số lượng </td>
+        <td width="100">Đơn giá</td>
+        <td width="200">Thành tiên </td>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.MaKH </td>
+        <td>@item.TenKH </td>
+        <td>@item.Diachi</td>
+        <td>@item.TenBao</td>
+        <td>@item.Ngaydat </td>
+        <td>@item.Soluong</td>
+        <td>@item.Dongia</td>
+        <td> @(item.Dongia * item.Soluong) </td>
+    </tr>
+        }
+</table>

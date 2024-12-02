@@ -1,0 +1,61 @@
+﻿@model IEnumerable<De01.Models.PhieuDatBao>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TenBao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MaKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayDat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DonGia)
+        </th>
+        <th>Thành tiền </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenBao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayDat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soluong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonGia)
+        </td>
+        <td>
+            @(item.DonGia*item.Soluong)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  MaKH=item.MaKH,TenBao=item.TenBao }) |
+            @Html.ActionLink("Details", "Details", new { MaKH = item.MaKH, TenBao = item.TenBao }) |
+            @Html.ActionLink("Delete", "Delete", new { MaKH = item.MaKH, TenBao = item.TenBao })
+        </td>
+    </tr>
+}
+
+</table>
